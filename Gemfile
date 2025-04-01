@@ -28,8 +28,6 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem "rspec-rails", "~> 7.1.1"
-  gem "rails-controller-testing"
   gem "byebug"
   gem "brakeman", require: false
 
@@ -38,4 +36,15 @@ end
 
 group :development do
   gem "web-console"
+end
+
+group :test do
+  gem "rspec-rails", "~> 7.1.1"
+  gem "rails-controller-testing"
+  gem "database_cleaner"
+  gem "factory_bot_rails"
+  gem "ffaker"
+  gem "shoulda-matchers", "~> 5.0"
+  gem "simplecov", "0.17.1", require: false
+
 end

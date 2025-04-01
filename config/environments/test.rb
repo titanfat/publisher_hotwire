@@ -33,6 +33,9 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
 
+  config.action_dispatch.cookies_serializer = :json
+  config.action_dispatch.use_authenticated_cookie_encryption = false
+
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "example.com" }
 
