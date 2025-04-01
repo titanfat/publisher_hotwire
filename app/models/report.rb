@@ -1,6 +1,6 @@
 class Report < ApplicationRecord
   has_one :post, as: :publishable, dependent: :destroy
-  belongs_to :reporter, class_name: "User", inverse_of: :reports
+  belongs_to :reporter, class_name: "User"
 
-  validates_inclusion_of :reporter_id, in: ->(report) { report.authors }
+  before_update validates_inclusion_of :reporter_id, in: ->(report) { report.authors }
 end

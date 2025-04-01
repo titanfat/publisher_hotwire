@@ -6,9 +6,8 @@ class PostQuery < ApplicationQuery
 
   def resolve(params)
     scoped = relation.includes(:publishable)
-    # scoped = search(scoped, params[:search_column], params[:keyword])
-    # scoped = order_by(scoped, params[:sort_scope], params[:order])
-    scoped
+    scoped = search(scoped, params[:search_column], params[:keyword])
+    scoped = order_by(scoped, params[:sort_scope], params[:order])
   end
 
   private def order_by(scoped, scope, sort = :desc) = scope ? scoped.public_send(scope, sort) : scoped
