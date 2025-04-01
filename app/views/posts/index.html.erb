@@ -1,0 +1,126 @@
+<div class="min-h-screen bg-gray-100" data-controller="modal">
+  <div class="sticky top-0 bg-gray-100 z-10 pt-6 pb-4 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-gray-800">Список публикаций</h1>
+        <div data-controller="dropdown" class="relative">
+          <button
+            data-action="click->dropdown#toggle"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md shadow-lg transition-colors duration-200 flex items-center gap-2">
+            <span>Создать пост</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+
+          <div
+            data-dropdown-target="menu"
+            class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
+            <ul class="py-1">
+              <% [{ title: 'Статья', type: 'Article' }, { title: 'Глава в книге', type: 'Chapter' }, { title: 'Обзор', type: 'Report' }].each do |post_type| %>
+                <li>
+                  <button
+                    data-action="click->modal#open"
+                    data-modal-type-value="<%= post_type[:type] %>"
+                    class="block w-full px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 text-left transition-colors">
+                    <%= post_type[:title] %>
+                  </button>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8 mb-6">
+    <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex-1">
+        <div class="relative">
+          <input
+            type="text"
+            placeholder="Поиск по публикациям..."
+            class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 transition-all"
+          >
+          <svg class="absolute right-3 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-2">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded-lg flex items-center gap-2 hover:bg-blue-600 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+          По дате
+        </button>
+
+        <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+          По названию
+        </button>
+
+        <button class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+          По автору
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 md:px-8 pb-8">
+    <%= turbo_frame_tag 'posts' do %>
+      <%= render PostListComponent.new(posts: @posts) %>
+    <% end %>
+  </div>
+
+
+  <div
+    id="modal-container"
+    class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg w-96" data-modal-target="dialog">
+      <h2 class="text-xl font-bold mb-4 text-center">
+        Создать
+        <span data-modal-target="typeDisplay"></span>
+      </h2>
+
+
+      <%= form_with model: Post.new, data: { turbo_frame: 'posts' }, class: "space-y-4" do |f| %>
+        <%= f.hidden_field :publishable_type, data: { modal_target: "typeDisplay" } %>
+        <%= f.text_field :title, placeholder: "Название", class: "w-full p-2 border rounded" %>
+        <%= f.text_field :original_title, placeholder: "Оригинальное название", class: "w-full p-2 border rounded" %>
+        <%= f.collection_select :author_ids, User.order(:id), :id, :full_name %>
+        <%= f.date_field :date_publishing, placeholder: "Дата публикации" %>
+
+<!--        article-->
+
+        <% if f.object.publishable_type == 'Article' %>
+          <%= f.collection_select :journal_id, Journal.order(:title), :id, :title, { prompt: "Выберите журнал" }, class: "form-select mt-1 w-full" %>
+          <%= f.text_field :doi, placeholder: "Идентификатор DOI", class: "w-full p-2 border rounded" %>
+        <% end %>
+
+
+        <% if f.object.publishable_type == 'Chapter' %>
+          <%= f.text_field :isbn, placeholder: "Идентификатор ISBN", class: "w-full p-2 border rounded" %>
+          <%= f.number_field :page_count, placeholder: "Кол-во страниц", class: "w-full p-2 border rounded" %>
+        <% end %>
+
+
+        <% if f.object.publishable_type == 'Report' %>
+          <%= f.text_field :conference_name, placeholder: "Место проведения конференции", class: "w-full p-2 border rounded" %>
+          <%= f.text_field :conference_place, placeholder: "Название конференции", class: "w-full p-2 border rounded" %>
+          <%= f.collection_select :reporter_id,User.order(:id), :id, :full_name,  { prompt: "Докладчик" } %>
+        <% end %>
+
+
+        <div class="flex justify-between">
+          <%= f.submit "Создать", class: "bg-blue-600 text-white px-4 py-2 rounded-md" %>
+          <button type="button" data-action="click->modal#close" class="bg-gray-400 hover:bg-gray-600 text-white px-4 py-2 rounded-md shadow-lg transition-colors duration-200">Отмена</button>
+        </div>
+
+    <% end %>
+
+    </div>
+  </div>
+
+</div>
+
+

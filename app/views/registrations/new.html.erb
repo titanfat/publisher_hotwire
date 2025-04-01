@@ -1,0 +1,59 @@
+<div class="max-w-2xl mx-auto p-4">
+  <h1 class="text-4xl font-bold text-center mb-8">Регистрация</h1>
+
+  <%= form_with model: @user, url: registrations_path, class: "max-w-md mx-auto space-y-6" do |form| %>
+    <% if form.object.errors.any? %>
+      <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg">
+        <%= form.object.errors.map(&:full_message).split(', ') %>
+      </div>
+    <% end %>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <%= form.label :email, class: "block mb-2 text-sm font-medium text-gray-900" %>
+      <%= form.email_field :email,
+                           autofocus: true,
+                           required: true,
+                           class: "registration-input",
+                           type: :email
+      %>
+    </div>
+
+    <div class="flex flex-wrap -mx-3 mb-0 md:mb-4">
+      <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+        <%= form.label :first_name %>
+        <%= form.text_field :first_name, class: "registration-input", required: true %>
+      </div>
+
+      <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+        <%= form.label :second_name %>
+        <%= form.text_field :second_name, class: "registration-input", required: true %>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name, class: "registration-input" %>
+      </div>
+
+      <div class="relative z-0 w-full mb-5 group">
+        <%= form.label :orcid %>
+        <%= form.number_field :orcid, class: "registration-input", required: true, type: :number %>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "registration-input", required: true %>
+      </div>
+
+      <div class="relative z-0 w-full mb-5 group">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, class: "registration-input", required: true %>
+      </div>
+    </div>
+
+    <%= form.submit class: "submit-btn" %>
+  <% end %>
+</div>
