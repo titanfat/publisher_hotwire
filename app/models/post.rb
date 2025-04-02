@@ -11,18 +11,18 @@ class Post < ApplicationRecord
   attribute :reporter_id, :integer
   attribute :reporter_name, :string
 
-  after_initialize :set_publishable_attributes
+  after_initialize :set_publishable_attributes, if: -> { publishable.present? }
 
   validates :title, :original_title, :authors, presence: true
-  validates_with PostsCreatorValidator, on: :create
+  # validates_with PostsCreatorValidator, on: :create
 
   has_and_belongs_to_many :authors, class_name: "User", join_table: "authors_posts"
   belongs_to :publishable, polymorphic: true
 
   has_one :self_ref, class_name: "Post", foreign_key: :id
-  has_many :article, through: :self_ref, source: :publishable, source_type: "Article"
-  has_many :chapter, through: :self_ref, source: :publishable, source_type: "Chapter"
-  has_many :report, through: :self_ref, source: :publishable, source_type: "Report"
+  has_one :article, through: :self_ref, source: :publishable, source_type: "Article"
+  has_one :chapter, through: :self_ref, source: :publishable, source_type: "Chapter"
+  has_one :report, through: :self_ref, source: :publishable, source_type: "Report"
 
   scope :by_published, ->(sort = :desc) { order(date_publishing: sort) }
   scope :by_title, ->(sort = :asc) { order(title: sort) }

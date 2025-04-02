@@ -1,5 +1,5 @@
 class PostQuery < ApplicationQuery
-
+  ALLOW_COLUMN = %w[title original_title publishable_type publisher doi isbn conference_name conference_place conference_place reporter_name].freeze
   def initialize(relation = Post.all)
     super(relation)
   end
