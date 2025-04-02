@@ -1,4 +1,5 @@
 class ApplicationQuery
+  ALLOW_COLUMN = [].freeze
   include Pagy::Backend
 
   private attr_reader :relation
@@ -7,7 +8,9 @@ class ApplicationQuery
   def resolve(params) = raise NotImplementedError
 
   private def search(relation, column = title, query = nil)
-    query ? relation.where("'%?%' ILIKE ? '%?%'", column, query) : relation
+    return relation unless self.class::ALLOW_COLUMN.include?(column.to_s)
+
+    query ? relation.where("#{column} ILIKE ?", "%#{query}%") : relation
   end
 
   private def per_page(scoped, page = 0)

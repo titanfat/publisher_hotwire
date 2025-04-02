@@ -4,11 +4,17 @@ FactoryBot.define do
     original_title { FFaker::Game.title }
     date_publishing { Date.today - 1.day }
 
+    association :publishable, factory: :chapter
+
     before(:create) do |post|
-      unless post.authors.any? && !!post.publishable_type
-        authors = create_list(:user, 3)
-        post.publishable = create(:chapter)
-        post.authors << authors
+      post.authors = create_list(:user, 3) if post.authors.blank?
+    end
+
+    after(:build) do |post|
+      if post.publishable.is_a?(Chapter)
+        post.publisher = post.publishable.publisher
+        post.isbn = post.publishable.isbn
+        post.page_count = post.publishable.page_count
       end
     end
   end
