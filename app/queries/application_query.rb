@@ -9,11 +9,6 @@ class ApplicationQuery
 
   private def search(relation, column = title, query = nil)
     return relation unless self.class::ALLOW_COLUMN.include?(column.to_s)
-
-    query ? relation.where("#{column} ILIKE ?", "%#{query}%") : relation
-  end
-
-  private def per_page(scoped, page = 0)
-    scoped.offset(params[:offset]).limit(params[:limit])
+    query ? relation.where(@relation.model.arel_table[column.to_sym].matches("%#{ActiveRecord::Base.sanitize_sql_like(query)}%")) : relation
   end
 end

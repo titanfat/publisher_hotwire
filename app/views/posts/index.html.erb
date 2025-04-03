@@ -67,59 +67,12 @@
   </div>
 
   <div class="max-w-7xl mx-auto px-4 md:px-8 pb-8">
-    <%= turbo_frame_tag 'posts' do %>
-      <%= render PostListComponent.new(posts: @posts) %>
+    <%= turbo_frame_tag 'posts', class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4" do %>
+      <%= render PostListComponent.with_collection(@posts) %>
     <% end %>
   </div>
 
-
-  <div
-    id="modal-container"
-    class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center">
-    <div class="bg-white p-6 rounded-lg w-96" data-modal-target="dialog">
-      <h2 class="text-xl font-bold mb-4 text-center">
-        Создать
-        <span data-modal-target="typeDisplay"></span>
-      </h2>
-
-
-      <%= form_with model: Post.new, data: { turbo_frame: 'posts' }, class: "space-y-4" do |f| %>
-        <%= f.hidden_field :publishable_type, data: { modal_target: "typeDisplay" } %>
-        <%= f.text_field :title, placeholder: "Название", class: "w-full p-2 border rounded" %>
-        <%= f.text_field :original_title, placeholder: "Оригинальное название", class: "w-full p-2 border rounded" %>
-        <%= f.collection_select :author_ids, User.order(:id), :id, :full_name %>
-        <%= f.date_field :date_publishing, placeholder: "Дата публикации" %>
-
-<!--        article-->
-
-        <% if f.object.publishable_type == 'Article' %>
-          <%= f.collection_select :journal_id, Journal.order(:title), :id, :title, { prompt: "Выберите журнал" }, class: "form-select mt-1 w-full" %>
-          <%= f.text_field :doi, placeholder: "Идентификатор DOI", class: "w-full p-2 border rounded" %>
-        <% end %>
-
-
-        <% if f.object.publishable_type == 'Chapter' %>
-          <%= f.text_field :isbn, placeholder: "Идентификатор ISBN", class: "w-full p-2 border rounded" %>
-          <%= f.number_field :page_count, placeholder: "Кол-во страниц", class: "w-full p-2 border rounded" %>
-        <% end %>
-
-
-        <% if f.object.publishable_type == 'Report' %>
-          <%= f.text_field :conference_name, placeholder: "Место проведения конференции", class: "w-full p-2 border rounded" %>
-          <%= f.text_field :conference_place, placeholder: "Название конференции", class: "w-full p-2 border rounded" %>
-          <%= f.collection_select :reporter_id,User.order(:id), :id, :full_name,  { prompt: "Докладчик" } %>
-        <% end %>
-
-
-        <div class="flex justify-between">
-          <%= f.submit "Создать", class: "bg-blue-600 text-white px-4 py-2 rounded-md" %>
-          <button type="button" data-action="click->modal#close" class="bg-gray-400 hover:bg-gray-600 text-white px-4 py-2 rounded-md shadow-lg transition-colors duration-200">Отмена</button>
-        </div>
-
-    <% end %>
-
-    </div>
-  </div>
+  <%= render "form" %>
 
 </div>
 

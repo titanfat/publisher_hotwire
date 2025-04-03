@@ -30,6 +30,8 @@ RSpec.configure do |config|
   ]
 
   config.include FactoryBot::Syntax::Methods
+  config.include Pagy::Backend, type: :request
+  config.include Pagy::Backend, type: :controller
 
   config.include AuthenticationHelper, type: :request
   config.include AuthenticationHelper, type: :controller

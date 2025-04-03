@@ -1,4 +1,3 @@
-// modal_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
@@ -10,9 +9,16 @@ export default class extends Controller {
   }
 
   open(e) {
-
-    this.typeDisplayTarget.textContent = e.currentTarget.dataset.modalTypeValue
+    const type = e.currentTarget.dataset.modalTypeValue
+    this.typeDisplayTarget.textContent = type
+    this.typeInputTarget.value = type
     this.modal.parentElement.classList.remove('hidden')
+    this.checkType(type)
+  }
+
+  checkType(type) {
+    const form = document.getElementById(type.toString().toLowerCase() + "_form")
+    form.classList.remove('hidden')
   }
 
   close() {

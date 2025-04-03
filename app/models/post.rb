@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   after_initialize :set_publishable_attributes, if: -> { publishable.present? }
 
   validates :title, :original_title, :authors, presence: true
-  # validates_with PostsCreatorValidator, on: :create
+  validates_with PostsCreatorValidator, on: :create
 
   has_and_belongs_to_many :authors, class_name: "User", join_table: "authors_posts"
   belongs_to :publishable, polymorphic: true
@@ -24,9 +24,12 @@ class Post < ApplicationRecord
   has_one :chapter, through: :self_ref, source: :publishable, source_type: "Chapter"
   has_one :report, through: :self_ref, source: :publishable, source_type: "Report"
 
-  scope :by_published, ->(sort = :desc) { order(date_publishing: sort) }
-  scope :by_title, ->(sort = :asc) { order(title: sort) }
-  scope :by_original_title, ->(sort = :asc) { order(original_title: sort) }
+  scope :by_published, ->(direct = 'desc') { order(date_publishing: direct) }
+  scope :by_title, ->(direct) do
+    direct = 'desc' unless %w[asc desc].include?(direct)
+    order(arel_table[:title].send(direct))
+  end
+  scope :by_original_title, ->(direct = 'desc') { order(original_title: direct) }
 
   private
 
