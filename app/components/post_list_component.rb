@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class PostListComponent < ViewComponent::Base
-
-  def initialize(posts:) = @posts = posts
+  with_collection_parameter :post
+  def initialize(post:) = @post = post
 end

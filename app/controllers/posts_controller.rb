@@ -41,11 +41,11 @@ class PostsController < ApplicationController
   end
 
   def load_posts
-    @pagy, @posts = pagy(PostQuery.new.resolve(query_params))
+    @pagy, @posts = pagy(PostQuery.new.resolve(query_params), items: 20)
   end
 
   def query_params
-    params.permit(:search_column, :keyword, :sort_scope, :order, :page)
+    params.permit(:search_column, :keyword, :sort_scope, :order)
   end
 
   def post_params
