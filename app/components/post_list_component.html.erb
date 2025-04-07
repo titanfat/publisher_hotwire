@@ -31,7 +31,7 @@
     <% if !!@post.journal_id %>
       <div>
         <span class="text-gray-500">Journal:</span>
-        <span class="text-gray-700"><%= @post.journal_id %></span>
+        <span class="text-gray-700"><%= @post&.publishable_journal&.title %></span> | ISSN: <%= @post&.publishable_journal&.issn %>
       </div>
     <% end %>
 
@@ -63,4 +63,8 @@
       </div>
     <% end %>
   </div>
+
+<!--  <div class="items-end">-->
+    <%#= link_to 'Редактировать', edit_post_path(@post), class: "btn-primary" %>
+<!--  </div>-->
 </div>

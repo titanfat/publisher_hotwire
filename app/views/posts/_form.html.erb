@@ -7,13 +7,14 @@
       <span data-modal-target="typeDisplay"></span>
     </h2>
 
-    <%= form_with model: Post.new, data: { turbo_frame: 'posts' }, class: "space-y-4" do |f| %>
+    <%= form_with model: Post.new, data: { turbo_frame: 'posts', action: 'turbo:submit-end->modal#submitHandler' }, class: "space-y-4" do |f| %>
       <%= f.hidden_field :publishable_type, data: { modal_target: "typeInput" } %>
       <%= f.text_field :title, placeholder: "Название", class: "w-full p-2 border rounded" %>
       <%= f.text_field :original_title, placeholder: "Оригинальное название", class: "w-full p-2 border rounded" %>
-      <%= f.collection_select :author_ids, User.order(:id), :id, :full_name, {}, class: "w-full p-2 border rounded" %>
+      <%= f.collection_select :author_ids, User.order(:id), :id, :full_name, {},
+                              { :multiple => true, class: "w-full p-2 border rounded", include_hidden: false }
+      %>
       <%= f.date_field :date_publishing, placeholder: "Дата публикации", class: "w-full p-2 border rounded" %>
-
 
 <!--      TODO fix with partial and dynamic render form via controller turbo frame render partial -->
 
@@ -22,19 +23,20 @@
         <%= f.text_field :doi, placeholder: "Идентификатор DOI", class: "w-full p-2 border rounded" %>
       </div>
 
-      <div id='chapter_form' class="hidden w-full p-2 space-y-4">
+      <div id='chapter_form' class="hidden w-full p-2 space-y-4" data-modal-target="formField">
         <%= f.text_field :isbn, placeholder: "Идентификатор ISBN", class: "w-full p-2 border rounded" %>
         <%= f.number_field :page_count, placeholder: "Кол-во страниц", class: "w-full p-2 border rounded" %>
+        <%= f.text_field :publisher, placeholder: "Издатель", class: "w-full p-2 border rounded" %>
       </div>
 
-      <div id='report_form' class="hidden w-full p-2 space-y-4">
+      <div id='report_form' class="hidden w-full p-2 space-y-4" data-modal-target="formField">
         <%= f.text_field :conference_name, placeholder: "Название конференции", class: "w-full p-2 border rounded" %>
         <%= f.text_field :conference_place, placeholder: "Место проведения конференции", class: "w-full p-2 border rounded" %>
         <%= f.collection_select :reporter_id, User.order(:id), :id, :full_name, { prompt: "Докладчик" }, class: "w-full p-2 border rounded" %>
       </div>
 
-      <div class="flex gap-2">
-        <%= f.submit "Создать", class: "bg-blue-600 text-white px-4 py-2 rounded-md w-full" %>
+      <div class="flex gap-2" data-modal-target="submit">
+        <%= f.submit "Создать", class: "bg-blue-600 text-white px-4 py-2 rounded-md w-full"%>
         <button type="button" data-action="click->modal#close" class="bg-gray-600 hover:bg-gray-800 text-white px-4 py-2 rounded-md w-full transition-colors duration-200">Отмена</button>
       </div>
     <% end %>

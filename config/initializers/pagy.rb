@@ -3,15 +3,15 @@
 # Pagy initializer file (9.3.3)
 # Customize only what you really need and notice that the core Pagy works also without any of the following lines.
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
-
+require 'pagy/extras/countless'
 
 # Pagy Variables
 # See https://ddnexus.github.io/pagy/docs/api/pagy#variables
 # You can set any pagy variable as a Pagy::DEFAULT. They can also be overridden per instance by just passing them to
 # Pagy.new|Pagy::Countless.new|Pagy::Calendar::*.new or any of the #pagy* controller methods
 # Here are the few that make more sense as DEFAULTs:
-Pagy::DEFAULT[:limit]       = 20                    # default
-Pagy::DEFAULT[:items]       = 20                    # default
+Pagy::DEFAULT[:limit]       = 10                    # default
+# Pagy::DEFAULT[:items]       = 10                    # default
 # Pagy::DEFAULT[:size]        = 7                     # default
 # Pagy::DEFAULT[:ends]        = true                  # default
 # Pagy::DEFAULT[:page_param]  = :page                 # default
@@ -60,7 +60,7 @@ Pagy::DEFAULT[:items]       = 20                    # default
 
 # Countless extra: Paginate without any count, saving one query per rendering
 # See https://ddnexus.github.io/pagy/docs/extras/countless
-# require 'pagy/extras/countless'
+
 # Pagy::DEFAULT[:countless_minimal] = false   # default (eager loading)
 
 # Elasticsearch Rails extra: Paginate `ElasticsearchRails::Results` objects

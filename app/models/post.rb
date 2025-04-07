@@ -24,6 +24,8 @@ class Post < ApplicationRecord
   has_one :chapter, through: :self_ref, source: :publishable, source_type: "Chapter"
   has_one :report, through: :self_ref, source: :publishable, source_type: "Report"
 
+  delegate :journal, to: :publishable, allow_nil: true, prefix: true
+
   scope :by_published, ->(direct = 'desc') { order(date_publishing: direct) }
   scope :by_title, ->(direct) do
     direct = 'desc' unless %w[asc desc].include?(direct)

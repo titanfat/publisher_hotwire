@@ -25,10 +25,16 @@ RSpec.describe PostsController, type: :request do
 
   describe 'create' do
     context 'post create with parameters' do
-      let(:post_params) { { authors: [user], title: "Test post", original_title: "title", date_publishing: Date.today - 1.days, publishable: chapter } }
+      let(:post_parameters) do
+        { author_ids: [user.id.to_s], title: "Test post", original_title: "title",
+                            date_publishing: Date.today - 1.days, isbn: 'test1234',
+                            page_count: 22, publisher: 'test publisher', publishable_type: 'Chapter'
+        }
+      end
 
       it 'with valid' do
-        expect { post posts_path, params: { post: attributes_for(:post).merge(post_params) } }.to change(Post, :count).by(1)
+        expect { post posts_path, params: { post: attributes_for(:post).merge(post_parameters) } }
+          .to change(Post, :count).by(1)
       end
     end
 

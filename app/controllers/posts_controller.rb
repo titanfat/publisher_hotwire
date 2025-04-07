@@ -1,23 +1,25 @@
 class PostsController < ApplicationController
   def index
     load_posts
-  end
-
-  def show
-    find_post
+    respond_to do |f|
+      f.html
+      f.turbo_stream
+    end
   end
 
   def new
     @post = Post.new
   end
 
+  def edit; end
+
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_path, notice: 'Публикация успешно создана!'
+    @post ||= Post::PostCreator.call(post_params)
+    if @post.present?
+      redirect_to posts_path, notice: "Публикация успешно создана!"
       turbo_stream
     else
-      render :'posts/index'
+      render posts_path
     end
   end
 
@@ -41,15 +43,15 @@ class PostsController < ApplicationController
   end
 
   def load_posts
-    @pagy, @posts = pagy(PostQuery.new.resolve(query_params), items: 20)
+    @pagy, @posts = pagy(PostQuery.new.resolve(query_params), items: 10)
   end
 
   def query_params
-    params.permit(:search_column, :keyword, :sort_scope, :order)
+    params.permit(:search_column, :keyword, :sort_scope, :order, :format)
   end
 
   def post_params
     params.require(:post).permit(:title, :original_title, :publishable_type, :isbn, :page_count, :doi, :journal_id, :publisher, :isbn,
-                                 :conference_name, :conference_place, :reporter_id, :reporter_name, :date_publishing, author_ids: [])
+                                 :conference_name, :conference_place, :reporter_id, :date_publishing, author_ids: [])
   end
 end

@@ -14,13 +14,15 @@
 
           <div
             data-dropdown-target="menu"
-            class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20">
+            class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-20"
+            id="dropdown_menu"
+          >
             <ul class="py-1">
               <% [{ title: 'Статья', type: 'Article' }, { title: 'Глава в книге', type: 'Chapter' }, { title: 'Обзор', type: 'Report' }].each do |post_type| %>
                 <li>
                   <button
                     data-action="click->modal#open"
-                    data-modal-type-value="<%= post_type[:type] %>"
+                    data-modal-type-param="<%= post_type[:type] %>"
                     class="block w-full px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 text-left transition-colors">
                     <%= post_type[:title] %>
                   </button>
@@ -32,7 +34,7 @@
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 md:px-8 mb-6">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 mb-6" data-controller="filter_fields">
     <div class="flex flex-col md:flex-row gap-4">
       <div class="flex-1">
         <div class="relative">
@@ -66,14 +68,23 @@
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 md:px-8 pb-8">
-    <%= turbo_frame_tag 'posts', class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4" do %>
+  <div id="post-list" class="max-w-7xl mx-auto px-4 md:px-8 pb-8">
+    <%= turbo_frame_tag "posts", class: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4" do %>
       <%= render PostListComponent.with_collection(@posts) %>
     <% end %>
   </div>
 
   <%= render "form" %>
 
+  <% if @pagy&.next.present? %>
+    <%= turbo_frame_tag :pagination,
+                        loading: :lazy,
+                        src: posts_path(page: @pagy.next, format: :turbo_stream) do %>
+      <div class="text-center py-4">
+        Загружаются посты...
+      </div>
+    <% end %>
+  <% end %>
 </div>
 
 
