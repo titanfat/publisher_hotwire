@@ -15,7 +15,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
-gem "tailwindcss-rails", " ~> 3.3.1"
+gem "tailwindcss-rails", "~> 4.2.2"
 gem "view_component"
 gem 'requestjs-rails'
 
