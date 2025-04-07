@@ -1,0 +1,17 @@
+<%= turbo_stream.append "posts" do %>
+  <%= render PostListComponent.with_collection(@posts) %>
+<% end %>
+
+<%= turbo_stream.replace :pagination do %>
+  <% if @pagy.next.present? %>
+    <%= turbo_frame_tag :pagination,
+                        loading: :lazy,
+                        src: posts_path(page: @pagy.next, format: :turbo_stream, query: params[:keyword]) %>
+  <% elsif @pagy&.page == @pagy&.last %>
+    <div class="text-center py-4">Загружено постов:  <%= @pagy.count %></div>
+  <% else %>
+    <div id="pagination" class="text-center py-4">
+      Посты отсутствуют
+    </div>
+  <% end %>
+<% end %>

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-RSpec.describe PostQuery, type:  do
+RSpec.describe PostQuery  do
   describe '.order_by' do
     it 'calls by_title with asc order' do
       scoped = Post.all

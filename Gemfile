@@ -5,16 +5,19 @@ gem "propshaft"
 gem "pg", "~> 1.1"
 gem "puma", ">= 5.0"
 gem "bcrypt", "~> 3.1.7"
-gem 'pagy', '~> 9.3'
+
+# support gem/lib
+gem "pagy", "~> 9.3"
+gem "dry-initializer", "~> 3.0"
 
 # js/css packages
-
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
 gem "tailwindcss-rails", " ~> 3.3.1"
 gem "view_component"
+gem 'requestjs-rails'
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
