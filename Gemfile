@@ -26,6 +26,8 @@ gem "solid_cable"
 
 # Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
+gem 'dotenv-rails'
+gem 'pghero'
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
@@ -33,6 +35,10 @@ gem "thruster", require: false
 group :development, :test do
   gem "byebug"
   gem "brakeman", require: false
+  gem 'active_record_doctor'
+  gem 'rails-pg-extras'
+  gem 'database_consistency'
+  gem 'bullet'
 
   gem "rubocop-rails-omakase", require: false
 end

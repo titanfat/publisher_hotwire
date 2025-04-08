@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_28_023318) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_08_030629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -22,7 +22,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_28_023318) do
     t.index ["journal_id"], name: "index_articles_on_journal_id"
   end
 
-  create_table "authors_posts", id: false, force: :cascade do |t|
+  create_table "authors_posts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.index ["post_id"], name: "index_authors_posts_on_post_id"
@@ -54,12 +54,13 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_28_023318) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["publishable_id", "publishable_type"], name: "post_index_types"
+    t.index ["publishable_type", "publishable_id"], name: "index_posts_on_publishable_type_and_publishable_id", unique: true
   end
 
   create_table "reports", force: :cascade do |t|
     t.string "conference_name"
     t.string "conference_place"
-    t.integer "reporter_id", null: false
+    t.bigint "reporter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reporter_id"], name: "index_reports_on_reporter_id"
