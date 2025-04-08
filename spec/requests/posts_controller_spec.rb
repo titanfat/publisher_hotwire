@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :request do
   let!(:user) { create(:user) }
-  let!(:chapter) { create(:chapter) }
-  let!(:posts) { create_list(:post, 22, publishable: chapter, authors: [user]) }
+  let!(:posts) { create_list(:post, 22, authors: [user]) }
 
   before { post session_path, params: { email: user.email, password: user.password } }
 

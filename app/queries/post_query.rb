@@ -1,12 +1,12 @@
 class PostQuery < ApplicationQuery
-  ALLOW_COLUMN = %w[title original_title publishable_type publisher doi isbn conference_name conference_place conference_place reporter_name].freeze
-  def initialize(relation = Post.all)
+  ALLOW_COLUMN = %w[title original_title].freeze
+  def initialize(relation = Post)
     super(relation)
   end
 
   def resolve(params)
-    scoped = relation.includes(:publishable)
-    scoped = search(scoped, params[:search_column], params[:keyword])
+    scoped = relation.includes(:publishable, :authors)
+    scoped = search(scoped, params[:keyword])
     scoped = order_by(scoped, params[:sort_scope], params[:order])
   end
 

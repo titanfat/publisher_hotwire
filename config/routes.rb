@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   root "posts#index", defaults: { format: :html }
   resources :posts, defaults: { format: :html }
+
+  mount PgHero::Engine, at: "pghero"
 end

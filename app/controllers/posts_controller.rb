@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def create
-    @post ||= Post::PostCreator.call(post_params)
+    @post = Post::PostCreator.call(post_params)
     if @post.present?
       redirect_to posts_path, notice: "Публикация успешно создана!"
       turbo_stream
