@@ -23,8 +23,8 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "solid_cache"
 gem "solid_cable"
+gem "solid_queue"
 
-# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
 gem "kamal", require: false
 gem 'dotenv-rails'
 gem 'pghero'
