@@ -425,7 +425,7 @@ DEPENDENCIES
   ffaker
   importmap-rails
   jbuilder
-  kamal
+  kamal (~> 2.5.2)
   pagy (~> 9.3)
   pg (~> 1.1)
   pghero

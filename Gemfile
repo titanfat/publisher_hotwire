@@ -25,7 +25,7 @@ gem "solid_cache"
 gem "solid_cable"
 gem "solid_queue"
 
-gem "kamal", require: false
+gem "kamal", "~> 2.5.2"
 gem 'dotenv-rails'
 gem 'pghero'
 
