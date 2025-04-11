@@ -21,10 +21,6 @@ gem 'requestjs-rails'
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
-gem "solid_cache"
-gem "solid_cable"
-gem "solid_queue"
-
 gem "kamal", "~> 2.5.2"
 gem 'dotenv-rails'
 gem 'pghero'
