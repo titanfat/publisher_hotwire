@@ -8,16 +8,14 @@ servers:
     - 192.144.15.188
 
 proxy:
-  ssl: true
+  ssl: false
   app_port: 80
   response_timeout: 300
   healthcheck:
     interval: 3
     path: /up
     timeout: 3
-  hosts:
-    - andrewfat.com
-    - www.andrewfat.com
+  host: 192.144.15.188
 
 
 registry:
