@@ -6,9 +6,6 @@ servers:
   web:
     hosts:
       - 192.144.15.188
-    options:
-      publish:
-        - 5150:5150
     proxy: false
 
 
