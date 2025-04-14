@@ -1,0 +1,72 @@
+service: post_publisher
+
+image: tit94an/publisher-test
+
+servers:
+  web:
+    hosts:
+    - 192.144.15.188
+
+proxy:
+  ssl: true
+  app_port: 80
+  response_timeout: 300
+  healthcheck:
+    interval: 3
+    path: /up
+    timeout: 3
+  hosts:
+    - andrewfat.com
+    - www.andrewfat.com
+
+
+registry:
+  username: tit94an
+
+  password:
+    - GITLAB_REGISTRY_TOKEN
+
+env:
+  secret:
+    - SECRET_KEY_BASE
+    - POSTGRES_PASSWORD
+  clear:
+    DB_HOST: 192.144.15.188
+    RAILS_LOG_LEVEL: info
+    SOLID_QUEUE_IN_PUMA: false
+
+
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+
+
+asset_path: /rails/public/assets
+
+builder:
+  arch: amd64
+
+ssh:
+  user: turing
+  config: true
+  log_level: debug
+
+accessories:
+  db:
+    image: postgres:15
+    host: 192.144.15.188
+    port: 5432
+    env:
+      clear:
+        POSTGRES_USER: post_publisher
+        POSTGRES_DB: post_publisher
+        POSTGRES_HOST_AUTH_METHOD: trust
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data
+    files:
+      - db/production_setup.sql:/docker-entrypoint-initdb.d/setup.sql
