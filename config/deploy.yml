@@ -4,9 +4,9 @@ image: tit94an/publisher-test
 
 servers:
   web:
-    hosts:
-      - 192.144.15.188
-    proxy: false
+    - 192.144.15.188
+
+
 
 
 registry:
@@ -23,7 +23,6 @@ env:
     DB_HOST: 192.144.15.188
     RAILS_LOG_LEVEL: info
     SOLID_QUEUE_IN_PUMA: false
-    PORT: "3000"
 
 
 
