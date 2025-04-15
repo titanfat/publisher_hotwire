@@ -4,10 +4,8 @@ image: tit94an/publisher-test
 
 servers:
   web:
+    hosts:
     - 192.144.15.188
-
-
-
 
 registry:
   username: tit94an
