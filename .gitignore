@@ -42,4 +42,5 @@
 .kamal
 config/credentials.yml.enc
 .idea
+.idea/post_publisher.iml
 .gitlab-ci.yml

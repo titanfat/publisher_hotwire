@@ -17,13 +17,18 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "tailwindcss-rails", " ~> 3.3.1"
 gem "view_component"
-gem 'requestjs-rails'
+gem "requestjs-rails"
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "kamal", "~> 2.5.2"
-gem 'dotenv-rails'
-gem 'pghero'
+gem "dotenv-rails"
+
+#db
+gem "pghero"
+gem "pg_search"
+gem "strong_migrations"
+gem "ransack"
 
 # Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
 gem "thruster", require: false
@@ -31,10 +36,10 @@ gem "thruster", require: false
 group :development, :test do
   gem "byebug"
   gem "brakeman", require: false
-  gem 'active_record_doctor'
-  gem 'rails-pg-extras'
-  gem 'database_consistency'
-  gem 'bullet'
+  gem "active_record_doctor"
+  gem "rails-pg-extras"
+  gem "database_consistency"
+  gem "bullet"
 
   gem "rubocop-rails-omakase", require: false
 end
@@ -51,5 +56,4 @@ group :test do
   gem "ffaker"
   gem "shoulda-matchers", "~> 5.0"
   gem "simplecov", "0.17.1", require: false
-
 end

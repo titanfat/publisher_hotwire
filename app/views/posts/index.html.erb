@@ -37,19 +37,14 @@
   <div class="max-w-7xl mx-auto px-4 md:px-8 mb-6">
     <div class="flex flex-col md:flex-row gap-4">
       <div class="flex-1 relative">
-        <%= form_with url: posts_path, method: :get, data: { controller: "filter_fields", turbo_stream: 'posts', filter_fields_target: "form" } do |f| %>
-          <%= f.search_field :keyword,
+        <%#= form_with url: posts_path, method: :get, data: { controller: "filter_fields", turbo_stream: 'posts', filter_fields_target: "form" } do |f| %>
+        <%= search_form_for @q, url: posts_path, method: :get, data: { turbo_stream: 'posts' } do |f| %>
+          <%= f.search_field :title_or_original_title_or_authors_first_name_or_authors_last_name_cont,
                              class: "w-full pr-10 pl-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-blue-500 form-control",
-                             placeholder: "Поиск по публикациям...",
-                             data: { action: "input->filter_fields#search", filter_fields_target: "input" }
+                             placeholder: "Поиск по публикациям..."
           %>
-          <button type="button"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 hidden"
-                  data-action="click->filter_fields#clear"
-                  data-filter_fields-target="clearButton"
-          >
-            ✕
-          </button>
+
+          <%= f.submit %>
         <% end %>
       </div>
 

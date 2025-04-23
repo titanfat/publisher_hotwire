@@ -43,11 +43,12 @@ class PostsController < ApplicationController
   end
 
   def load_posts
-    @pagy, @posts = pagy(PostQuery.new.resolve(query_params), items: 10)
+    @q = Post.ransack(query_params[:q])
+    @pagy, @posts = pagy(@q.result(distinct: true).includes(:publishable, :authors), items: 10)
   end
 
   def query_params
-    params.permit(:search_column, :keyword, :sort_scope, :order, :format)
+    params.permit(:format, :sort_scope, :order, q: [:title_or_original_title_or_authors_first_name_or_authors_last_name_cont])
   end
 
   def post_params

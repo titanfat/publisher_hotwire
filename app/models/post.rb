@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   include ActiveModel::Attributes
+  include PgSearch::Model
 
   attribute :doi, :string
   attribute :journal_id, :integer
@@ -10,6 +11,7 @@ class Post < ApplicationRecord
   attribute :conference_place, :string
   attribute :reporter_id, :integer
   attribute :reporter_name, :string
+
 
   after_initialize :set_publishable_attributes, if: -> { publishable.present? }
 
@@ -34,6 +36,12 @@ class Post < ApplicationRecord
   scope :by_original_title, ->(direct = 'desc') { order(original_title: direct) }
 
   private
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title original_title]
+  end
+
+  def self.ransackable_associations(auth_object = nil) = %w(authors)
 
   def set_publishable_attributes
     case publishable

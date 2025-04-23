@@ -34,6 +34,7 @@
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actiontext (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="active_record_doctor (v1.15.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
@@ -48,6 +49,7 @@
     <orderEntry type="library" scope="PROVIDED" name="bindex (v0.8.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="brakeman (v7.0.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.3.0, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bullet (v8.0.3, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.5.23, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="byebug (v12.0.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.5, rbenv: 3.2.1) [gem]" level="application" />
@@ -56,11 +58,14 @@
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v2.1.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner-active_record (v2.2.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="database_cleaner-core (v2.0.1, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_consistency (v2.0.4, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="date (v3.4.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.6.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="docile (v1.4.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="dotenv (v3.1.7, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v3.1.7, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.1, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="dry-initializer (v3.2.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ed25519 (v1.3.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.13.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="factory_bot (v6.5.1, rbenv: 3.2.1) [gem]" level="application" />
@@ -97,6 +102,7 @@
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.26.3, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.7.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.5.9, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pghero (v3.6.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pp (v0.6.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="prettyprint (v0.2.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="propshaft (v1.1.0, rbenv: 3.2.1) [gem]" level="application" />
@@ -111,12 +117,14 @@
     <orderEntry type="library" scope="PROVIDED" name="rails-controller-testing (v1.0.5, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-dom-testing (v2.2.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rails-html-sanitizer (v1.6.2, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rails-pg-extras (v5.6.7, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="railties (v8.0.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.13.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.10.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.6.0, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="requestjs-rails (v0.0.12, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-core (v3.13.3, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-expectations (v3.13.3, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rspec-mocks (v3.13.2, rbenv: 3.2.1) [gem]" level="application" />
@@ -127,18 +135,18 @@
     <orderEntry type="library" scope="PROVIDED" name="rubocop-performance (v1.24.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rails (v2.30.3, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rails-omakase (v1.1.0, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-pg-extras (v5.6.7, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.13.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="securerandom (v0.4.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shoulda-matchers (v5.3.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov (v0.17.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simplecov-html (v0.10.2, rbenv: 3.2.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="solid_cable (v3.0.7, rbenv: 3.2.1) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="solid_cache (v1.0.7, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sshkit (v1.24.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.4, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.5, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v3.3.1, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tailwindcss-ruby (v3.4.17, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="terminal-table (v4.0.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.2, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thruster (v0.1.12, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.3, rbenv: 3.2.1) [gem]" level="application" />
@@ -146,6 +154,7 @@
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v3.1.4, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-emoji (v4.0.4, rbenv: 3.2.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uniform_notifier (v1.16.0, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="uri (v1.0.3, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="useragent (v0.16.11, rbenv: 3.2.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="view_component (v3.21.0, rbenv: 3.2.1) [gem]" level="application" />
@@ -398,7 +407,6 @@
       <value>file://$MODULE_DIR$/public/stylesheets</value>
     </entry>
     <entry key="test/mailers/previews">
-      <value>file://$MODULE_DIR$/spec/mailers/previews</value>
       <value>file://$MODULE_DIR$/test/mailers/previews</value>
       <value>file://$MODULE_DIR$/test/mailers/previews</value>
     </entry>
@@ -416,6 +424,96 @@
     <option name="myRootTask">
       <RakeTaskImpl id="rake">
         <subtasks>
+          <RakeTaskImpl description="Run all active_record_doctor detectors" fullCommand="active_record_doctor" id="active_record_doctor" />
+          <RakeTaskImpl id="active_record_doctor">
+            <subtasks>
+              <RakeTaskImpl description="identify indexes that can be dropped without degrading performance" fullCommand="active_record_doctor:extraneous_indexes" id="extraneous_indexes" />
+              <RakeTaskImpl id="extraneous_indexes">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for extraneous_indexes" fullCommand="active_record_doctor:extraneous_indexes:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect presence (instead of inclusion) validators on boolean columns" fullCommand="active_record_doctor:incorrect_boolean_presence_validation" id="incorrect_boolean_presence_validation" />
+              <RakeTaskImpl id="incorrect_boolean_presence_validation">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for incorrect_boolean_presence_validation" fullCommand="active_record_doctor:incorrect_boolean_presence_validation:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect associations with incorrect dependent options" fullCommand="active_record_doctor:incorrect_dependent_option" id="incorrect_dependent_option" />
+              <RakeTaskImpl id="incorrect_dependent_option">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for incorrect_dependent_option" fullCommand="active_record_doctor:incorrect_dependent_option:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect mismatches between database length limits and model length validations" fullCommand="active_record_doctor:incorrect_length_validation" id="incorrect_length_validation" />
+              <RakeTaskImpl id="incorrect_length_validation">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for incorrect_length_validation" fullCommand="active_record_doctor:incorrect_length_validation:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect foreign key type mismatches" fullCommand="active_record_doctor:mismatched_foreign_key_type" id="mismatched_foreign_key_type" />
+              <RakeTaskImpl id="mismatched_foreign_key_type">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for mismatched_foreign_key_type" fullCommand="active_record_doctor:mismatched_foreign_key_type:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect foreign-key-like columns lacking an actual foreign key constraint" fullCommand="active_record_doctor:missing_foreign_keys" id="missing_foreign_keys" />
+              <RakeTaskImpl id="missing_foreign_keys">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for missing_foreign_keys" fullCommand="active_record_doctor:missing_foreign_keys:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect columns whose presence is always validated but isn't enforced via a non-NULL constraint" fullCommand="active_record_doctor:missing_non_null_constraint" id="missing_non_null_constraint" />
+              <RakeTaskImpl id="missing_non_null_constraint">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for missing_non_null_constraint" fullCommand="active_record_doctor:missing_non_null_constraint:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect non-NULL columns without a corresponding presence validator" fullCommand="active_record_doctor:missing_presence_validation" id="missing_presence_validation" />
+              <RakeTaskImpl id="missing_presence_validation">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for missing_presence_validation" fullCommand="active_record_doctor:missing_presence_validation:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect uniqueness validators not backed by a database constraint" fullCommand="active_record_doctor:missing_unique_indexes" id="missing_unique_indexes" />
+              <RakeTaskImpl id="missing_unique_indexes">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for missing_unique_indexes" fullCommand="active_record_doctor:missing_unique_indexes:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect primary keys with short integer types" fullCommand="active_record_doctor:short_primary_key_type" id="short_primary_key_type" />
+              <RakeTaskImpl id="short_primary_key_type">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for short_primary_key_type" fullCommand="active_record_doctor:short_primary_key_type:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect tables without primary keys" fullCommand="active_record_doctor:table_without_primary_key" id="table_without_primary_key" />
+              <RakeTaskImpl id="table_without_primary_key">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for table_without_primary_key" fullCommand="active_record_doctor:table_without_primary_key:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect models referencing undefined tables or views" fullCommand="active_record_doctor:undefined_table_references" id="undefined_table_references" />
+              <RakeTaskImpl id="undefined_table_references">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for undefined_table_references" fullCommand="active_record_doctor:undefined_table_references:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect indexes that exclude deletion timestamp columns" fullCommand="active_record_doctor:unindexed_deleted_at" id="unindexed_deleted_at" />
+              <RakeTaskImpl id="unindexed_deleted_at">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for unindexed_deleted_at" fullCommand="active_record_doctor:unindexed_deleted_at:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="detect unindexed foreign keys" fullCommand="active_record_doctor:unindexed_foreign_keys" id="unindexed_foreign_keys" />
+              <RakeTaskImpl id="unindexed_foreign_keys">
+                <subtasks>
+                  <RakeTaskImpl description="Show help for unindexed_foreign_keys" fullCommand="active_record_doctor:unindexed_foreign_keys:help" id="help" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="active_record_doctor:setup" id="setup" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="app">
             <subtasks>
               <RakeTaskImpl description="Apply the template supplied by LOCATION=(/path/to/template) or URL" fullCommand="app:template" id="template" />
@@ -553,18 +651,73 @@
               <RakeTaskImpl description="Truncate all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl id="solid_cable">
+          <RakeTaskImpl id="pg_extras">
             <subtasks>
-              <RakeTaskImpl description="Copy over the schema and set cable adapter for Solid Cable" fullCommand="solid_cable:install" id="install" />
-              <RakeTaskImpl description="" fullCommand="solid_cable:update" id="update" />
+              <RakeTaskImpl description="Configure extensions necessary for other queries to work" fullCommand="pg_extras:add_extensions" id="add_extensions" />
+              <RakeTaskImpl description="Queries with active locks" fullCommand="pg_extras:all_locks" id="all_locks" />
+              <RakeTaskImpl description="Table and index bloat in your database ordered by most wasteful" fullCommand="pg_extras:bloat" id="bloat" />
+              <RakeTaskImpl description="Queries holding locks other queries are waiting to be released" fullCommand="pg_extras:blocking" id="blocking" />
+              <RakeTaskImpl description="Calculates percentages of relations buffered in database share buffer" fullCommand="pg_extras:buffercache_stats" id="buffercache_stats" />
+              <RakeTaskImpl description="Calculate how many blocks from which table are currently cached" fullCommand="pg_extras:buffercache_usage" id="buffercache_usage" />
+              <RakeTaskImpl description="Index and table hit rate" fullCommand="pg_extras:cache_hit" id="cache_hit" />
+              <RakeTaskImpl description="Queries that have highest frequency of execution" fullCommand="pg_extras:calls" id="calls" />
+              <RakeTaskImpl description="Returns the list of all active database connections" fullCommand="pg_extras:connections" id="connections" />
+              <RakeTaskImpl description="Values of selected PostgreSQL settings" fullCommand="pg_extras:db_settings" id="db_settings" />
+              <RakeTaskImpl description="Generate a PostgreSQL healthcheck report" fullCommand="pg_extras:diagnose" id="diagnose" />
+              <RakeTaskImpl description="Multiple indexes that have the same set of columns, same opclass, expression and predicate" fullCommand="pg_extras:duplicate_indexes" id="duplicate_indexes" />
+              <RakeTaskImpl description="Available and installed extensions" fullCommand="pg_extras:extensions" id="extensions" />
+              <RakeTaskImpl description="Calculates your cache hit rate for reading indexes" fullCommand="pg_extras:index_cache_hit" id="index_cache_hit" />
+              <RakeTaskImpl description="Display indexes metadata metrics" fullCommand="pg_extras:index_info" id="index_info" />
+              <RakeTaskImpl description="Number of scans performed on indexes" fullCommand="pg_extras:index_scans" id="index_scans" />
+              <RakeTaskImpl description="The size of indexes, descending by size" fullCommand="pg_extras:index_size" id="index_size" />
+              <RakeTaskImpl description="Index hit rate (effective databases are at 99 percent and up)" fullCommand="pg_extras:index_usage" id="index_usage" />
+              <RakeTaskImpl description="List all the indexes with their corresponding tables and columns" fullCommand="pg_extras:indexes" id="indexes" />
+              <RakeTaskImpl description="Kill all the active database connections" fullCommand="pg_extras:kill_all" id="kill_all" />
+              <RakeTaskImpl description="Kill database connection by its pid" fullCommand="pg_extras:kill_pid" id="kill_pid" />
+              <RakeTaskImpl description="Queries with active exclusive locks" fullCommand="pg_extras:locks" id="locks" />
+              <RakeTaskImpl description="All queries longer than the threshold by descending duration" fullCommand="pg_extras:long_running_queries" id="long_running_queries" />
+              <RakeTaskImpl description="The mandelbrot set" fullCommand="pg_extras:mandelbrot" id="mandelbrot" />
+              <RakeTaskImpl description="Find indexes with a high ratio of NULL values" fullCommand="pg_extras:null_indexes" id="null_indexes" />
+              <RakeTaskImpl description="Queries that have longest execution time in aggregate" fullCommand="pg_extras:outliers" id="outliers" />
+              <RakeTaskImpl description="pg_stat_statements_reset discards statistics gathered so far by pg_stat_statements" fullCommand="pg_extras:pg_stat_statements_reset" id="pg_stat_statements_reset" />
+              <RakeTaskImpl description="All tables and the number of rows in each ordered by number of rows descending" fullCommand="pg_extras:records_rank" id="records_rank" />
+              <RakeTaskImpl description="Count of sequential scans by table descending by order" fullCommand="pg_extras:seq_scans" id="seq_scans" />
+              <RakeTaskImpl description="Check if SSL connection is used" fullCommand="pg_extras:ssl_used" id="ssl_used" />
+              <RakeTaskImpl description="Calculates your cache hit rate for reading tables" fullCommand="pg_extras:table_cache_hit" id="table_cache_hit" />
+              <RakeTaskImpl description="Foreign keys info for a specific table" fullCommand="pg_extras:table_foreign_keys" id="table_foreign_keys" />
+              <RakeTaskImpl description="Count of index scans by table descending by order" fullCommand="pg_extras:table_index_scans" id="table_index_scans" />
+              <RakeTaskImpl description="Total size of all the indexes on each table, descending by size" fullCommand="pg_extras:table_indexes_size" id="table_indexes_size" />
+              <RakeTaskImpl description="Display tables metadata metrics" fullCommand="pg_extras:table_info" id="table_info" />
+              <RakeTaskImpl description="Table column names and types" fullCommand="pg_extras:table_schema" id="table_schema" />
+              <RakeTaskImpl description="Size of the tables (excluding indexes), descending by size" fullCommand="pg_extras:table_size" id="table_size" />
+              <RakeTaskImpl description="List all the tables" fullCommand="pg_extras:tables" id="tables" />
+              <RakeTaskImpl description="Total size of all indexes in MB" fullCommand="pg_extras:total_index_size" id="total_index_size" />
+              <RakeTaskImpl description="Size of the tables (including indexes), descending by size" fullCommand="pg_extras:total_table_size" id="total_table_size" />
+              <RakeTaskImpl description="Unused and almost unused indexes" fullCommand="pg_extras:unused_indexes" id="unused_indexes" />
+              <RakeTaskImpl description="Dead rows and whether an automatic vacuum is expected to be triggered" fullCommand="pg_extras:vacuum_stats" id="vacuum_stats" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl id="solid_cache">
+          <RakeTaskImpl id="pghero">
             <subtasks>
-              <RakeTaskImpl description="Copy over the migration, and set cache" fullCommand="solid_cache:install" id="install" />
+              <RakeTaskImpl description="Analyze tables" fullCommand="pghero:analyze" id="analyze" />
+              <RakeTaskImpl description="Autoindex tables" fullCommand="pghero:autoindex" id="autoindex" />
+              <RakeTaskImpl description="Capture query stats" fullCommand="pghero:capture_query_stats" id="capture_query_stats" />
+              <RakeTaskImpl description="Capture space stats" fullCommand="pghero:capture_space_stats" id="capture_space_stats" />
+              <RakeTaskImpl description="Remove old query stats" fullCommand="pghero:clean_query_stats" id="clean_query_stats" />
+              <RakeTaskImpl description="Remove old space stats" fullCommand="pghero:clean_space_stats" id="clean_space_stats" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
+          <RakeTaskImpl id="requestjs">
+            <subtasks>
+              <RakeTaskImpl description="Install Request.JS into the app" fullCommand="requestjs:install" id="install" />
+              <RakeTaskImpl id="install">
+                <subtasks>
+                  <RakeTaskImpl description="Install Request.JS on the app with the asset pipeline" fullCommand="requestjs:install:asset_pipeline" id="asset_pipeline" />
+                  <RakeTaskImpl description="Install Request.JS on the app with webpacker" fullCommand="requestjs:install:webpacker" id="webpacker" />
+                </subtasks>
+              </RakeTaskImpl>
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl description="Report code statistics (KLOCs, etc) from the application or engine" fullCommand="stats" id="stats" />
           <RakeTaskImpl id="stimulus">
             <subtasks>
@@ -658,7 +811,6 @@
               <RakeTaskImpl description="Check project structure for Zeitwerk compatibility" fullCommand="zeitwerk:check" id="check" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="" fullCommand="default" id="default" />
           <RakeTaskImpl description="" fullCommand="environment" id="environment" />
           <RakeTaskImpl id="railties">
             <subtasks>
@@ -667,12 +819,6 @@
                   <RakeTaskImpl description="" fullCommand="railties:install:migrations" id="migrations" />
                 </subtasks>
               </RakeTaskImpl>
-            </subtasks>
-          </RakeTaskImpl>
-          <RakeTaskImpl id="spec">
-            <subtasks>
-              <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
-              <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="" fullCommand="tmp" id="tmp" />

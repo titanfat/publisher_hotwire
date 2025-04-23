@@ -9,4 +9,8 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{second_name} #{last_name}".squish
   end
+
+  private
+
+  def self.ransackable_attributes(auth_object = nil) = %w[first_name last_name second_name]
 end

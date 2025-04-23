@@ -15,6 +15,7 @@ production:
   primary: &primary_production
     <<: *default
     host: <%= ENV["DB_HOST"] %>
+    port: 5432
     database: post_publisher
     username: post_publisher
     password: <%= ENV["POSTGRES_PASSWORD"] %>

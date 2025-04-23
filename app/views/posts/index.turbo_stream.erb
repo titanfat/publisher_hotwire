@@ -6,7 +6,7 @@
   <% if @pagy.next.present? %>
     <%= turbo_frame_tag :pagination,
                         loading: :lazy,
-                        src: posts_path(page: @pagy.next, format: :turbo_stream, query: params[:keyword]) %>
+                        src: posts_path(page: @pagy.next, format: :turbo_stream, q: params[:q]&.to_unsafe_h) %>
   <% elsif @pagy&.page == @pagy&.last %>
     <div class="text-center py-4">Загружено постов:  <%= @pagy.count %></div>
   <% else %>
