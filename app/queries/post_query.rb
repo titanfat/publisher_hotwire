@@ -5,7 +5,7 @@ class PostQuery < ApplicationQuery
   end
 
   def resolve(params)
-    scoped = relation.includes(:publishable, :authors)
+    scoped = relation.includes([:publishable, :authors])
     scoped = search(scoped, params[:keyword])
     scoped = order_by(scoped, params[:sort_scope], params[:order])
   end

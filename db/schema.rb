@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_08_030629) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_25_183620) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -84,7 +84,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_08_030629) do
     t.bigint "orcid"
     t.string "email"
     t.string "password_digest"
+    t.virtual "searchable_full_name", type: :tsvector, as: "(setweight(to_tsvector('simple'::regconfig, (COALESCE(first_name, ''::character varying))::text), 'A'::\"char\") || setweight(to_tsvector('simple'::regconfig, (COALESCE(last_name, ''::character varying))::text), 'B'::\"char\"))", stored: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["searchable_full_name"], name: "index_users_on_searchable_full_name", using: :gin
     t.check_constraint "email IS NOT NULL"
     t.check_constraint "password_digest IS NOT NULL"
   end
@@ -94,4 +96,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_08_030629) do
   add_foreign_key "authors_posts", "users"
   add_foreign_key "reports", "users", column: "reporter_id"
   add_foreign_key "sessions", "users"
+
+  create_view "post_searches", materialized: true, sql_definition: <<-SQL
+      SELECT p.id AS post_id,
+      ((to_tsvector('simple'::regconfig, (COALESCE(p.title, ''::character varying))::text) || to_tsvector('simple'::regconfig, (COALESCE(p.original_title, ''::character varying))::text)) || to_tsvector('simple'::regconfig, COALESCE(string_agg(concat(u.first_name, '', u.last_name), ' ; '::text)))) AS tsv_document
+     FROM ((posts p
+       JOIN authors_posts ap ON ((p.id = ap.post_id)))
+       JOIN users u ON ((u.id = ap.user_id)))
+    GROUP BY p.id, p.title, p.original_title;
+  SQL
+  add_index "post_searches", ["tsv_document"], name: "index_post_searches_on_tsv_document", using: :gin
+
 end
