@@ -43,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def load_posts
-    @pagy, @posts = pagy(PostQuery.new.resolve(query_params), items: 10)
+    @pagy, @posts = pagy(PostQuery.new.resolve(query_params).includes(:publishable, :authors), items: 10)
   end
 
   def query_params

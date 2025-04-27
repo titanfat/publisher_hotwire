@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   include ActiveModel::Attributes
+  include PgSearch::Model
 
   attribute :doi, :string
   attribute :journal_id, :integer
@@ -25,6 +26,16 @@ class Post < ApplicationRecord
   has_one :report, through: :self_ref, source: :publishable, source_type: "Report"
 
   delegate :journal, to: :publishable, allow_nil: true, prefix: true
+
+
+  # pg_search_scope :search,
+    # against: { title: 'A', original_title: 'B' },
+    # associated_against: { authors: :searchable_full_name },
+    # using: {
+    #   tsearch: {
+    #     dictionary: "simple"
+    #   }
+    # }
 
   scope :by_published, ->(direct = 'desc') { order(date_publishing: direct) }
   scope :by_title, ->(direct) do

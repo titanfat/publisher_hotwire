@@ -43,6 +43,7 @@
                              placeholder: "Поиск по публикациям...",
                              data: { action: "input->filter_fields#search", filter_fields_target: "input" }
           %>
+          <%= f.submit class: "absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600g" %>
           <button type="button"
                   class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 hidden"
                   data-action="click->filter_fields#clear"
