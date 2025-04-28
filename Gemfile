@@ -56,7 +56,7 @@ group :test do
   gem "database_cleaner"
   gem "factory_bot_rails"
   gem "ffaker"
-  gem "shoulda-matchers", "~> 5.0"
+  gem "shoulda-matchers", "~> 6.5"
   gem "simplecov", "0.17.1", require: false
 
 end
