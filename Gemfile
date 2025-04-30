@@ -51,7 +51,7 @@ group :development do
 end
 
 group :test do
-  gem "rspec-rails", "~> 7.1.1"
+  gem "rspec-rails", "~> 8.0.0"
   gem "rails-controller-testing"
   gem "database_cleaner"
   gem "factory_bot_rails"
